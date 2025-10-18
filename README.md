@@ -47,7 +47,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local.
 ### **Paso 1: Clonar el Repositorio**
 
 ```bash
-git clone <URL_DE_TU_REPOSITORIO_EN_GITHUB>
+git clone https://github.com/ingcristiangarcas/prueba_automatizacion_QA.git
 cd flyr_test_project
 ```
 
