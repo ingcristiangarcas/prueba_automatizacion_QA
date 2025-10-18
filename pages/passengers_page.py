@@ -7,7 +7,6 @@ from pages.base_page import BasePage
 from utils.logger import get_logger
 from faker import Faker
 import time
-import random
 
 logger = get_logger()
 
@@ -31,13 +30,13 @@ class PassengersPage(BasePage):
     NATIONALITY_DROPDOWN = (By.XPATH, "//button[contains(@id, 'IdDocNationality')]")
     NATIONALITY_OPTION_COLOMBIA = (By.XPATH, "//button[.//span[normalize-space()='Colombia']]")
 
-    # --- LOCATORS: DATOS DE CONTACTO (CORREGIDOS) ---
+  
     CONTACT_PREFIX_DROPDOWN = (By.ID, "phone_prefixPhoneId")
     CONTACT_PREFIX_COLOMBIA = (By.XPATH, "//button[contains(@id, 'phone_prefixPhoneId') and .//span[text()='Colombia']]")
     CONTACT_PHONE_INPUT = (By.ID, "phone_phoneNumberId")
     CONTACT_EMAIL_INPUT = (By.ID, "email")
     CONTACT_CONFIRM_EMAIL_INPUT = (By.ID, "confirmEmail")
-    # Este es el locator correcto y más fiable
+
     CONTACT_TERMS_LABEL = (By.XPATH, "//label[@for='sendNewsLetter']")
     CONTINUE_BUTTON = (By.XPATH, "//button[contains(@class, 'page_button') and .//span[normalize-space()='Continuar']]")
 
@@ -109,14 +108,11 @@ class PassengersPage(BasePage):
         logger.info("Haciendo clic en Continuar para ir a la página de servicios con JS Force Click.")
         wait = WebDriverWait(self.driver, 20)
         
-        # 1. Esperamos solo a que el botón EXISTA en el DOM.
         continue_btn = wait.until(EC.presence_of_element_located(self.CONTINUE_BUTTON))
         
-        # 2. Hacemos scroll hacia él.
         self.driver.execute_script("arguments[0].scrollIntoView(true);", continue_btn)
-        time.sleep(1) # Pausa para que el scroll termine.
+        time.sleep(1) 
         
-        # 3. FORZAMOS el clic con JavaScript.
         self.driver.execute_script("arguments[0].click();", continue_btn)
         
         logger.info("Clic forzado en 'Continuar' realizado.")

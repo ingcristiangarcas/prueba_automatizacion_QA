@@ -6,32 +6,32 @@ from pages.base_page import BasePage
 from utils.logger import get_logger
 from faker import Faker
 import time
-import random
+
 
 logger = get_logger()
 
 class PaymentsPage(BasePage):
     
-    # --- LOCATORS ---
+    
     PAGE_LOADER = (By.CSS_SELECTOR, "div.page-loader")
     PAGE_TITLE = (By.XPATH, "//div[contains(text(), 'Pagar con tarjeta')]")
 
-    # IFRAMES
+    
     CARD_HOLDER_IFRAME = (By.XPATH, "//iframe[contains(@id, 'braintree-hosted-field-cardholder')]")
     CARD_NUMBER_IFRAME = (By.XPATH, "//iframe[contains(@id, 'braintree-hosted-field-number')]")
     EXPIRATION_IFRAME = (By.XPATH, "//iframe[contains(@id, 'braintree-hosted-field-expirationDate')]")
     CVV_IFRAME = (By.XPATH, "//iframe[contains(@id, 'braintree-hosted-field-cvv')]")
     
-    # Campos DENTRO de los iframes
+    
     CARD_HOLDER_INPUT = (By.ID, "cardholder-name")
     CARD_NUMBER_INPUT = (By.ID, "credit-card-number")
     EXPIRATION_INPUT = (By.ID, "expiration")
     CVV_INPUT = (By.ID, "cvv")
     
-    # Campos de Facturación (fuera de iframes)
+    
     BILLING_EMAIL_INPUT = (By.ID, "email")
     BILLING_ADDRESS_INPUT = (By.ID, "address")
-    # ... (y los demás que ya tenías)
+    
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -47,9 +47,9 @@ class PaymentsPage(BasePage):
         self._fill_expiration_date(wait)
         self._fill_cvv(wait)
         self._fill_billing_details(wait)
-        # ... (lógica de aceptar términos y pagar)
+        
     
-    # --- Métodos privados para cada iframe ---
+   
     def _fill_card_holder(self, wait):
         try:
             wait.until(EC.frame_to_be_available_and_switch_to_it(self.CARD_HOLDER_IFRAME))
@@ -69,18 +69,16 @@ class PaymentsPage(BasePage):
         wait = WebDriverWait(self.driver, 60)
         
         logger.info("Esperando a que el iframe de pago esté disponible...")
-        # 1. Esperamos a que el iframe correcto esté listo y nos cambiamos a él
         wait.until(EC.frame_to_be_available_and_switch_to_it(self.PAYMENT_IFRAME))
         
         logger.info("Dentro del iframe. Rellenando el nombre del titular...")
         try:
-            # 2. Ahora que estamos dentro, buscamos y rellenamos el campo
+            
             wait.until(EC.visibility_of_element_located(self.CARD_HOLDER_INPUT))
             card_holder = self.faker.name()
             self.do_send_keys(self.CARD_HOLDER_INPUT, card_holder)
         
         finally:
-            # 3. PASE LO QUE PASE, salimos del iframe
             self.driver.switch_to.default_content()
             logger.info("Se ha salido del iframe de pago.")
         

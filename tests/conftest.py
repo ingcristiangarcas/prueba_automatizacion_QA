@@ -8,7 +8,7 @@ def driver():
     # --- SETUP ---
     driver = webdriver.Chrome()
     
-    yield driver # Aquí es donde la prueba se ejecuta
+    yield driver 
     
     # --- TEARDOWN ---
     driver.quit()

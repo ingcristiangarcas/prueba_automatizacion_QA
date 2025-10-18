@@ -33,7 +33,6 @@ def test_one_way_booking_complete(driver):
         home.select_one_way_flight()
         home.select_departure_city("Bogotá")
         home.select_destination_city("Cali")
-        # Omitimos fecha y pasajeros para usar los valores por defecto
         home.click_search_button()
 
     with allure.step("Paso 2: Seleccionar Tarifa en la Página de Vuelos"):
@@ -45,11 +44,10 @@ def test_one_way_booking_complete(driver):
         assert "/booking/passengers" in driver.current_url
         passengers_page.fill_all_data_and_continue(num_adults=1)
         
-        # --- PAUSA CLAVE AÑADIDA ---
-        # Damos 3 segundos para que la navegación a la página de servicios se complete.
+
         logger.info("Esperando a que la página de servicios cargue...")
         time.sleep(25)
-        # --- FIN DE LA PAUSA ---
+
 
     with allure.step("Paso 4: Añadir Servicios Adicionales"):
         assert "/booking/services" in driver.current_url
@@ -61,17 +59,16 @@ def test_one_way_booking_complete(driver):
         allure.attach(driver.get_screenshot_as_png(), name="Basket_Validado", attachment_type=allure.attachment_type.PNG)
 
 
-     # --- WORKAROUND PARA EL BOTÓN ROTO DE SERVICIOS ---
+
     with allure.step("Paso 5: Forzar navegación a la Página de Asientos (Seatmap)"):
         logger.info("El botón 'Continuar' de Servicios no funciona. Forzando navegación a Seatmap.")
         base_url_actual = driver.current_url.split('/booking/')[0]
         driver.get(f"{base_url_actual}/booking/seatmap")
-        time.sleep(25) # Pausa para que la página de seatmap cargue
-    # --- FIN DEL WORKAROUND ---
+        time.sleep(25) 
 
     with allure.step("Paso 5: Seleccionar Asientos en Seatmap"):
         assert "/booking/seatmap" in driver.current_url
-        # Llamamos al método sobre el objeto 'seatmap_page', no sobre la clase 'SeatmapPage'
+
         seatmap_page.select_seats_and_continue(num_passengers=numero_de_adultos)
     
     with allure.step("Paso 6: Realizar Pago con Tarjeta Falsa"):

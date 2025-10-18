@@ -42,7 +42,7 @@ class BasePage:
             element.clear()
             for char in text:
                 element.send_keys(char)
-                time.sleep(0.25) # Pequeña pausa entre letras
+                time.sleep(0.25) 
         except TimeoutException:
             logger.error(f"Error: Elemento REQUERIDO no encontrado para escritura lenta: {by_locator}")
             raise
@@ -67,10 +67,6 @@ class BasePage:
     def wait_for_element_to_be_clickable(self, by_locator, timeout=15):
         """Método explícito para esperar a que un elemento sea clickeable."""
         try:
-            # Línea incorrecta:
-            # WebDriverWait(self, timeout).until(EC.element_to_be_clickable(by_locator))
-            
-            # Línea CORRECTA:
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(by_locator))
 
             logger.info(f"Elemento {by_locator} está listo y es clickeable.")

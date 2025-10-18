@@ -39,22 +39,19 @@ class SeatmapPage(BasePage):
         
         for i in range(num_passengers):
             try:
-                # --- LÓGICA ANTI-FANTASMA ---
-                # 1. Volvemos a buscar TODOS los asientos disponibles en CADA iteración
+        
                 all_available_seats = self.driver.find_elements(*self.AVAILABLE_SEATS)
                 logger.info(f"Iteración {i+1}: {len(all_available_seats)} asientos disponibles encontrados.")
                 
                 if not all_available_seats:
                     raise Exception("No se encontraron más asientos disponibles.")
 
-                # 2. Seleccionamos el primer asiento disponible de la lista "fresca"
                 seat_to_select = all_available_seats[0]
                 seat_number = seat_to_select.get_attribute("id") or seat_to_select.text
                 
                 logger.info(f"Seleccionando asiento '{seat_number}' para el pasajero {i+1}...")
                 self.driver.execute_script("arguments[0].click();", seat_to_select)
                 
-                # 3. Pausa CRÍTICA para que la página se actualice antes de la siguiente iteración
                 logger.info("Esperando a que la selección de asiento se procese...")
                 time.sleep(15)
 

@@ -10,9 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 logger = get_logger()
 
 class HomePage(BasePage):
-    # Heredamos de BasePage para reutilizar el driver
 
-    # --- Métodos de tu código original, adaptados ---
     def open(self, url):
         logger.info(f"Abriendo URL: {url}")
         self.driver.get(url)
@@ -59,7 +57,7 @@ class HomePage(BasePage):
 
             logger.info("Esperando a que el loader desaparezca después de seleccionar el POS...")
             wait.until(EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.page-loader")))
-            # --- FIN DE LA LÍNEA CLAVE ---
+          
 
         except Exception as e:
             logger.error(f"No se pudo seleccionar el POS {country}. Error: {e}")
