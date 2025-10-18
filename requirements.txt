@@ -1,0 +1,5 @@
+selenium
+pytest
+allure-pytest
+openpyxl # Útil para manejar datos si se necesita
+faker    # Para generar datos de pasajeros aleatorios
