@@ -4,6 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from utils.logger import get_logger
 import time
+import allure  # <-- Asegúrate de importar allure
+import os      # <-- Asegúrate de importar os
 
 logger = get_logger()
 
@@ -36,7 +38,6 @@ class BasePage:
             raise
 
     def send_keys_slowly(self, by_locator, text, timeout=15):
-        """NUEVO MÉTODO: Escribe lentamente, como un humano."""
         try:
             element = WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(by_locator))
             element.clear()
@@ -65,11 +66,39 @@ class BasePage:
             raise
     
     def wait_for_element_to_be_clickable(self, by_locator, timeout=15):
-        """Método explícito para esperar a que un elemento sea clickeable."""
         try:
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(by_locator))
-
             logger.info(f"Elemento {by_locator} está listo y es clickeable.")
         except TimeoutException:
             logger.error(f"Error: El elemento {by_locator} no se volvió clickeable en el tiempo esperado.")
             raise
+
+    # --- ESTE ES EL MÉTODO QUE FALTABA ---
+    def take_screenshot(self, name):
+        """
+        Toma una captura de pantalla, la guarda localmente 
+        y la adjunta al reporte de Allure.
+        """
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        filename = f"{name}_{timestamp}.png"
+        
+        ss_dir = os.path.join(os.path.dirname(__file__), '..', 'screenshots')
+        os.makedirs(ss_dir, exist_ok=True)
+        file_path = os.path.join(ss_dir, filename)
+
+        try:
+            png_data = self.driver.get_screenshot_as_png()
+            
+            with open(file_path, 'wb') as f:
+                f.write(png_data)
+            
+            allure.attach(
+                png_data,
+                name=name,
+                attachment_type=allure.attachment_type.PNG
+            )
+            logger.info(f"Captura de pantalla guardada en: {file_path}")
+            logger.info(f"Captura de pantalla '{name}' adjuntada a Allure.")
+        
+        except Exception as e:
+            logger.error(f"No se pudo tomar la captura de pantalla: {e}")

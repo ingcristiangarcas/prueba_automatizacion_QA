@@ -1,0 +1,62 @@
+[1m[31mERROR   [0m test_logger:base_page.py:65 Error: Elemento REQUERIDO no encontrado para clic con JS: ('xpath', "//button[.//span[normalize-space()='01']]")
+[1m[31mERROR   [0m test_logger:test_booking_roundtrip.py:112 [DEBUG] Test Falló: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6f601e8e5+80021]
+	GetHandleVerifier [0x0x7ff6f601e940+80112]
+	(No symbol) [0x0x7ff6f5da060f]
+	(No symbol) [0x0x7ff6f5df8854]
+	(No symbol) [0x0x7ff6f5df8b1c]
+	(No symbol) [0x0x7ff6f5e4c927]
+	(No symbol) [0x0x7ff6f5e2126f]
+	(No symbol) [0x0x7ff6f5e4968a]
+	(No symbol) [0x0x7ff6f5e21003]
+	(No symbol) [0x0x7ff6f5de95d1]
+	(No symbol) [0x0x7ff6f5dea3f3]
+	GetHandleVerifier [0x0x7ff6f62ddc7d+2960429]
+	GetHandleVerifier [0x0x7ff6f62d7f3a+2936554]
+	GetHandleVerifier [0x0x7ff6f62f8977+3070247]
+	GetHandleVerifier [0x0x7ff6f60383ce+185214]
+	GetHandleVerifier [0x0x7ff6f603fe1f+216527]
+	GetHandleVerifier [0x0x7ff6f6027b24+117460]
+	GetHandleVerifier [0x0x7ff6f6027cdf+117903]
+	GetHandleVerifier [0x0x7ff6f600dbb8+11112]
+	BaseThreadInitThunk [0x0x7ff8b87ee8d7+23]
+	RtlUserThreadStart [0x0x7ff8ba88c53c+44]
+Traceback (most recent call last):
+  File "C:\Proyectos\flyr_test_project\tests\test_booking_roundtrip.py", line 99, in test_complete_roundtrip_booking
+    passengers_page.fill_all_data_and_continue(passengers_data)
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+           ^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\pages\passengers_page.py", line 75, in fill_all_data_and_continue
+    self.fill_passengers_forms(passengers_data)
+  File "C:\Proyectos\flyr_test_project\pages\passengers_page.py", line 127, in fill_passengers_forms
+    self.js_click(dob_option_locator(day))
+  File "C:\Proyectos\flyr_test_project\pages\base_page.py", line 61, in js_click
+    element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(by_locator))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 138, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6f601e8e5+80021]
+	GetHandleVerifier [0x0x7ff6f601e940+80112]
+	(No symbol) [0x0x7ff6f5da060f]
+	(No symbol) [0x0x7ff6f5df8854]
+	(No symbol) [0x0x7ff6f5df8b1c]
+	(No symbol) [0x0x7ff6f5e4c927]
+	(No symbol) [0x0x7ff6f5e2126f]
+	(No symbol) [0x0x7ff6f5e4968a]
+	(No symbol) [0x0x7ff6f5e21003]
+	(No symbol) [0x0x7ff6f5de95d1]
+	(No symbol) [0x0x7ff6f5dea3f3]
+	GetHandleVerifier [0x0x7ff6f62ddc7d+2960429]
+	GetHandleVerifier [0x0x7ff6f62d7f3a+2936554]
+	GetHandleVerifier [0x0x7ff6f62f8977+3070247]
+	GetHandleVerifier [0x0x7ff6f60383ce+185214]
+	GetHandleVerifier [0x0x7ff6f603fe1f+216527]
+	GetHandleVerifier [0x0x7ff6f6027b24+117460]
+	GetHandleVerifier [0x0x7ff6f6027cdf+117903]
+	GetHandleVerifier [0x0x7ff6f600dbb8+11112]
+	BaseThreadInitThunk [0x0x7ff8b87ee8d7+23]
+	RtlUserThreadStart [0x0x7ff8ba88c53c+44]
