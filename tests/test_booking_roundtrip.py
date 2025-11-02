@@ -3,7 +3,7 @@ import allure
 import time
 from pages_roundtrip.offers_page import OffersPage 
 from pages_roundtrip.select_flight_page_rt import SelectFlightPageRT
-from pages.passengers_page import PassengersPage
+from pages_roundtrip.passenger_page_rt import PassengersPageRT
 from utils.test_data_generator import generate_passenger_data_for_roundtrip
 
 
@@ -91,17 +91,19 @@ class TestRoundTripBooking:
                 logger.info("Navegando a la página de Pasajeros.")
 
             # --- 5. Passengers Page (¡AHORA ACTIVO!) ---
-            passengers_page = PassengersPage(driver)
+            passengers_page = PassengersPageRT(driver)
             with allure.step(f"Paso 5: Ingresar {MAX_PASSENGERS} pasajeros (1ro='Test Test')"):
                 # Generamos los 9 pasajeros (con 'Test Test' primero)
                 passengers_data = generate_passenger_data_for_roundtrip(MAX_PASSENGERS)
                 # Llamamos al método que rellena todos los formularios y da clic en continuar
-                passengers_page.fill_all_data_and_continue(passengers_data)
+                passengers_page.fill_all_names_lastnames_and_genders(passengers_data)
                 
-                logger.info("Página de Pasajeros completada. Deberíamos estar en Servicios.")
-                allure.attach(driver.get_screenshot_as_png(), name="Pasajeros_Completados", attachment_type=allure.attachment_type.PNG)
-                logger.info("Pausa de 10 segundos para verificación visual...")
-                time.sleep(10)
+                logger.info("Página de Pasajeros (Nombres/Apellidos) completada.")
+                allure.attach(driver.get_screenshot_as_png(), name="Pasajeros_Nombres_Completados", attachment_type=allure.attachment_type.PNG)
+                
+                # El time.sleep(10) ya está dentro del método fill_all_names_and_lastnames
+                # Así que esta pausa es opcional, pero la dejamos por si acaso.
+                time.sleep(5)
             
 
             status = "PASS" # Si llega aquí, la navegación funcionó

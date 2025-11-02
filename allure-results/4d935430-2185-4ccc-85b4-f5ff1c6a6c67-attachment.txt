@@ -1,0 +1,36 @@
+Texto del Summary: 9 Tiquetes adulto
+COP
+6.340.500
+9 Cobro por instalación en el aeropuerto (Colombia) (COAE)
+COP
+1.707.300
+9 Impuesto turístico (Colombia) (JSTO)
+COP
+522.900
+9 Tasa de terminal (FCFC)
+COP
+1.540.800
+9 Ibe-codes.FeeCode_FDTR
+COP
+105.300
+9 Impuesto de hacienda cuando la tarifa origina en NI (NIEM)
+COP
+951.300
+9 Tasa de Seguridad Aeroportuaria (PXVD)
+COP
+105.300
+9 Inspección de equipaje (R6CB)
+COP
+53.100
+9 Tasa de Seguridad (Internacional)
+COP
+131.400
+9 Supplemental Security Fee Departure (P5DP)
+COP
+18.900
+9 Tasa Suplementaria de Seguridad
+COP
+18.900
+9 Ibe-codes.FeeCode_V9AD
+COP
+109.800
