@@ -38,7 +38,7 @@ def generate_passenger_data_for_roundtrip(num_passengers):
         "Documento de identidad", 
         "Pasaporte", 
         "Cédula de Extranjería", 
-        "Tarjeta de Identidad"
+        "Pasaporte diplomático"
     ] 
 
     for i in range(num_passengers):

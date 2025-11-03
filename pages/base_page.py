@@ -6,12 +6,14 @@ from utils.logger import get_logger
 import time
 import allure  # <-- Asegúrate de importar allure
 import os      # <-- Asegúrate de importar os
+from faker import Faker
 
 logger = get_logger()
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+        self.faker = Faker()
 
     def do_click(self, by_locator, timeout=30):
         try:
@@ -56,7 +58,7 @@ class BasePage:
             logger.error(f"Error: Elemento REQUERIDO no encontrado con el locator {by_locator}")
             raise
 
-    def js_click(self, by_locator, timeout=15):
+    def js_click(self, by_locator, timeout=20):
         try:
             element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(by_locator))
             self.driver.execute_script("arguments[0].click();", element)

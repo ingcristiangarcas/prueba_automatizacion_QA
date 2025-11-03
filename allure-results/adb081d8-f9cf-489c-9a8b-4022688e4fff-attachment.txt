@@ -1,0 +1,115 @@
+[31m[1mERROR   [0m test_logger:offers_page.py:60 Falló durante la selección de oferta y búsqueda simple: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=141.0.7390.125); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff75dbfe8e5+80021]
+	GetHandleVerifier [0x0x7ff75dbfe940+80112]
+	(No symbol) [0x0x7ff75d98060f]
+	(No symbol) [0x0x7ff75d96c145]
+	(No symbol) [0x0x7ff75d99177a]
+	(No symbol) [0x0x7ff75da08b06]
+	(No symbol) [0x0x7ff75da28fa2]
+	(No symbol) [0x0x7ff75da01003]
+	(No symbol) [0x0x7ff75d9c95d1]
+	(No symbol) [0x0x7ff75d9ca3f3]
+	GetHandleVerifier [0x0x7ff75debdc7d+2960429]
+	GetHandleVerifier [0x0x7ff75deb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff75ded8977+3070247]
+	GetHandleVerifier [0x0x7ff75dc183ce+185214]
+	GetHandleVerifier [0x0x7ff75dc1fe1f+216527]
+	GetHandleVerifier [0x0x7ff75dc07b24+117460]
+	GetHandleVerifier [0x0x7ff75dc07cdf+117903]
+	GetHandleVerifier [0x0x7ff75dbedbb8+11112]
+	BaseThreadInitThunk [0x0x7fffefc6e8d7+23]
+	RtlUserThreadStart [0x0x7ffff15ac53c+44]
+
+[31m[1mERROR   [0m test_logger:base_page.py:106 No se pudo tomar la captura de pantalla: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff75dbfe8e5+80021]
+	GetHandleVerifier [0x0x7ff75dbfe940+80112]
+	(No symbol) [0x0x7ff75d980425]
+	(No symbol) [0x0x7ff75d9c864f]
+	(No symbol) [0x0x7ff75da010f2]
+	(No symbol) [0x0x7ff75d9fb89f]
+	(No symbol) [0x0x7ff75d9fa94a]
+	(No symbol) [0x0x7ff75d94a765]
+	GetHandleVerifier [0x0x7ff75debdc7d+2960429]
+	GetHandleVerifier [0x0x7ff75deb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff75ded8977+3070247]
+	GetHandleVerifier [0x0x7ff75dc183ce+185214]
+	GetHandleVerifier [0x0x7ff75dc1fe1f+216527]
+	(No symbol) [0x0x7ff75d94970e]
+	GetHandleVerifier [0x0x7ff75dff6a68+4241944]
+	BaseThreadInitThunk [0x0x7fffefc6e8d7+23]
+	RtlUserThreadStart [0x0x7ffff15ac53c+44]
+
+[31m[1mERROR   [0m test_logger:test_booking_roundtrip.py:132 [DEBUG] Test Falló: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=141.0.7390.125); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff75dbfe8e5+80021]
+	GetHandleVerifier [0x0x7ff75dbfe940+80112]
+	(No symbol) [0x0x7ff75d98060f]
+	(No symbol) [0x0x7ff75d96c145]
+	(No symbol) [0x0x7ff75d99177a]
+	(No symbol) [0x0x7ff75da08b06]
+	(No symbol) [0x0x7ff75da28fa2]
+	(No symbol) [0x0x7ff75da01003]
+	(No symbol) [0x0x7ff75d9c95d1]
+	(No symbol) [0x0x7ff75d9ca3f3]
+	GetHandleVerifier [0x0x7ff75debdc7d+2960429]
+	GetHandleVerifier [0x0x7ff75deb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff75ded8977+3070247]
+	GetHandleVerifier [0x0x7ff75dc183ce+185214]
+	GetHandleVerifier [0x0x7ff75dc1fe1f+216527]
+	GetHandleVerifier [0x0x7ff75dc07b24+117460]
+	GetHandleVerifier [0x0x7ff75dc07cdf+117903]
+	GetHandleVerifier [0x0x7ff75dbedbb8+11112]
+	BaseThreadInitThunk [0x0x7fffefc6e8d7+23]
+	RtlUserThreadStart [0x0x7ffff15ac53c+44]
+Traceback (most recent call last):
+  File "C:\Proyectos\flyr_test_project\tests\test_booking_roundtrip.py", line 48, in test_complete_roundtrip_booking
+    offers_page.select_offer_and_search_defaults() # <-- LLAMAMOS AL MÉTODO SIMPLE
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\allure_commons\_allure.py", line 202, in impl
+    return func(*a, **kw)
+           ^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\pages_roundtrip\offers_page.py", line 54, in select_offer_and_search_defaults
+    WebDriverWait(self.driver, 60).until(EC.invisibility_of_element_located(self.PAGE_LOADER))
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\support\wait.py", line 129, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 556, in _predicate
+    target = driver.find_element(*target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 926, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+  File "C:\Proyectos\flyr_test_project\venv\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidSessionIdException: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=141.0.7390.125); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff75dbfe8e5+80021]
+	GetHandleVerifier [0x0x7ff75dbfe940+80112]
+	(No symbol) [0x0x7ff75d98060f]
+	(No symbol) [0x0x7ff75d96c145]
+	(No symbol) [0x0x7ff75d99177a]
+	(No symbol) [0x0x7ff75da08b06]
+	(No symbol) [0x0x7ff75da28fa2]
+	(No symbol) [0x0x7ff75da01003]
+	(No symbol) [0x0x7ff75d9c95d1]
+	(No symbol) [0x0x7ff75d9ca3f3]
+	GetHandleVerifier [0x0x7ff75debdc7d+2960429]
+	GetHandleVerifier [0x0x7ff75deb7f3a+2936554]
+	GetHandleVerifier [0x0x7ff75ded8977+3070247]
+	GetHandleVerifier [0x0x7ff75dc183ce+185214]
+	GetHandleVerifier [0x0x7ff75dc1fe1f+216527]
+	GetHandleVerifier [0x0x7ff75dc07b24+117460]
+	GetHandleVerifier [0x0x7ff75dc07cdf+117903]
+	GetHandleVerifier [0x0x7ff75dbedbb8+11112]
+	BaseThreadInitThunk [0x0x7fffefc6e8d7+23]
+	RtlUserThreadStart [0x0x7ffff15ac53c+44]

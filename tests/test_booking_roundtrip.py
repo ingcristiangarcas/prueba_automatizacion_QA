@@ -4,6 +4,7 @@ import time
 from pages_roundtrip.offers_page import OffersPage 
 from pages_roundtrip.select_flight_page_rt import SelectFlightPageRT
 from pages_roundtrip.passenger_page_rt import PassengersPageRT
+from pages_roundtrip.services_page_rt import ServicesPageRT
 from utils.test_data_generator import generate_passenger_data_for_roundtrip
 
 
@@ -96,7 +97,7 @@ class TestRoundTripBooking:
                 # Generamos los 9 pasajeros (con 'Test Test' primero)
                 passengers_data = generate_passenger_data_for_roundtrip(MAX_PASSENGERS)
                 # Llamamos al método que rellena todos los formularios y da clic en continuar
-                passengers_page.fill_all_names_lastnames_and_genders(passengers_data)
+                passengers_page.fill_all_passenger_data(passengers_data)
                 
                 logger.info("Página de Pasajeros (Nombres/Apellidos) completada.")
                 allure.attach(driver.get_screenshot_as_png(), name="Pasajeros_Nombres_Completados", attachment_type=allure.attachment_type.PNG)
@@ -104,6 +105,23 @@ class TestRoundTripBooking:
                 # El time.sleep(10) ya está dentro del método fill_all_names_and_lastnames
                 # Así que esta pausa es opcional, pero la dejamos por si acaso.
                 time.sleep(5)
+
+                # --- 6. Services Page ---
+            services_page = ServicesPageRT(driver) # 1. Instancia la nueva página
+            with allure.step("Paso 6: Añadir equipaje normal y deportivo para todos los pasajeros"):
+                
+                services_page.wait_for_page_to_load() # 2. Espera a que cargue
+                
+                services_page.add_all_baggage_services() # 3. Añade todo el equipaje
+                
+                services_page.validate_services_in_basket() # 4. Valida en el basket
+                
+                logger.info("Página de Servicios completada.")
+                allure.attach(driver.get_screenshot_as_png(), name="Servicios_Completados", attachment_type=allure.attachment_type.PNG)
+                
+                services_page.click_continue() # 5. Continúa a la siguiente página (Seatmap)
+            
+            # <<< --- FIN DE LO NUEVO --- >>>
             
 
             status = "PASS" # Si llega aquí, la navegación funcionó
