@@ -1,7 +1,5 @@
 # pages/locators_rt.py
 from selenium.webdriver.common.by import By
-
-# --- MAPA DE MESES (Requerido para la fecha) ---
 MONTH_MAP = {
     "01": "Enero", "02": "Febrero", "03": "Marzo", "04": "Abril",
     "05": "Mayo", "06": "Junio", "07": "Julio", "08": "Agosto",
@@ -12,7 +10,7 @@ MONTH_MAP = {
 # --- LOCATORS PARA NUXQA4 ---
 # ==============================================================================
 LOCATORS_NUXQA4 = {
-    # --- PASAJERO 1 (COMPLETO) ---
+    # --- PASAJERO 1  ---
     "pax_1_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_1_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_1_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -41,7 +39,7 @@ LOCATORS_NUXQA4 = {
     "pax_1_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_1_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 2 (AÑADIDO) ---
+    # --- PASAJERO 2 ---
     "pax_2_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_2_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_2_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -70,7 +68,7 @@ LOCATORS_NUXQA4 = {
     "pax_2_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_2_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
     
-    # --- PASAJERO 3 (COMPLETO) ---
+    # --- PASAJERO 3 ---
     "pax_3_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_3_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_3_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -99,7 +97,7 @@ LOCATORS_NUXQA4 = {
     "pax_3_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_3_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 4 (COMPLETO) ---
+    # --- PASAJERO 4 ---
     "pax_4_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_4_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_4_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -128,7 +126,7 @@ LOCATORS_NUXQA4 = {
     "pax_4_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_4_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 5 (COMPLETO) ---
+    # --- PASAJERO 5  ---
     "pax_5_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_5_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_5_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -157,7 +155,7 @@ LOCATORS_NUXQA4 = {
     "pax_5_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_5_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 6 (COMPLETO) ---
+    # --- PASAJERO  ---
     "pax_6_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_6_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_6_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -186,7 +184,7 @@ LOCATORS_NUXQA4 = {
     "pax_6_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_6_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 7 (COMPLETO) ---
+    # --- PASAJERO 7 ---
     "pax_7_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_7_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_7_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -215,7 +213,7 @@ LOCATORS_NUXQA4 = {
     "pax_7_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_7_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 8 (COMPLETO) ---
+    # --- PASAJERO 8  ---
     "pax_8_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_8_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_8_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -244,7 +242,7 @@ LOCATORS_NUXQA4 = {
     "pax_8_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_8_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 9 (COMPLETO) ---
+    # --- PASAJERO 9  ---
     "pax_9_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_9_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_9_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -272,9 +270,7 @@ LOCATORS_NUXQA4 = {
     "pax_9_freq_flyer_option_no aplica": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[6]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
     "pax_9_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_9_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/base-form/panel/div/panel-content/form-editor/panel/div/panel-content/base-form-editor/form/div[2]/div[1]/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
-
     "contact_terms_checkbox": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/contact-container/booking-contact-custom/form/div/div/ibe-checkbox/div")
-
 
 }
 
@@ -282,7 +278,7 @@ LOCATORS_NUXQA4 = {
 # --- LOCATORS PARA NUXQA5 ---
 # ==============================================================================
 LOCATORS_NUXQA5 = {
-    # --- PASAJERO 1 (COMPLETO) ---
+    # --- PASAJERO 1  ---
     "pax_1_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_1_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_1_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -311,7 +307,7 @@ LOCATORS_NUXQA5 = {
     "pax_1_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_1_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[1]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 2 (AÑADIDO) ---
+    # --- PASAJERO 2 ---
     "pax_2_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_2_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_2_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -340,7 +336,7 @@ LOCATORS_NUXQA5 = {
     "pax_2_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_2_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[2]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 3 (COMPLETO) ---
+    # --- PASAJERO 3 ---
     "pax_3_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_3_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_3_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -369,7 +365,7 @@ LOCATORS_NUXQA5 = {
     "pax_3_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_3_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[3]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 4 (COMPLETO) ---
+    # --- PASAJERO 4  ---
     "pax_4_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_4_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_4_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -398,7 +394,7 @@ LOCATORS_NUXQA5 = {
     "pax_4_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_4_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[4]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 5 (COMPLETO) ---
+    # --- PASAJERO 5  ---
     "pax_5_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_5_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_5_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -427,7 +423,7 @@ LOCATORS_NUXQA5 = {
     "pax_5_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_5_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[5]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 6 (COMPLETO) ---
+    # --- PASAJERO 6  ---
     "pax_6_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_6_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_6_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -456,7 +452,7 @@ LOCATORS_NUXQA5 = {
     "pax_6_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_6_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[6]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 7 (COMPLETO) ---
+    # --- PASAJERO 7---
     "pax_7_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_7_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_7_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -485,7 +481,7 @@ LOCATORS_NUXQA5 = {
     "pax_7_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_7_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[7]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 8 (COMPLETO) ---
+    # --- PASAJERO 8  ---
     "pax_8_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_8_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_8_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -514,7 +510,7 @@ LOCATORS_NUXQA5 = {
     "pax_8_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_8_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[8]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
 
-    # --- PASAJERO 9 (COMPLETO) ---
+    # --- PASAJERO 9  ---
     "pax_9_name": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[1]/div/div[2]/ibe-input/div/div/input"),
     "pax_9_lastname": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[2]/ibe-input/div/div/input"),
     "pax_9_gender_dropdown": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[1]/div/div[1]/ibe-select-custom/div/div[2]/button"),
@@ -542,7 +538,6 @@ LOCATORS_NUXQA5 = {
     "pax_9_freq_flyer_option_no aplica": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[6]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
     "pax_9_freq_flyer_dropdown_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/button"),
     "pax_9_freq_flyer_option_no aplica_shifted": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/passenger-details-container/personal-data-custom/div/div/div[9]/personal-data-form-custom/div/form/div/div[7]/ibe-select-custom/div/div[2]/ul/li[1]/button"),
-
     "contact_terms_checkbox": (By.XPATH, "/html/body/div[1]/main/div/div[3]/div/div/contact-container/booking-contact-custom/form/div[2]/ibe-checkbox/div")
 
 }
@@ -553,38 +548,18 @@ def _populate_date_locators():
     Función interna para poblar los diccionarios con los locators de fechas
     """
     months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-    # --- ¡CORRECCIÓN DE AÑOS! Rango extendido ---
-    years = [str(y) for y in range(2008, 1929, -1)] # Genera de 2006 a 1930
-    exp_years = [str(y) for y in range(2035, 2024, -1)] # Años de expiración (2035 a 2025)
+    years = [str(y) for y in range(2008, 1929, -1)] 
+    exp_years = [str(y) for y in range(2035, 2024, -1)] 
 
     
-    for i in range(1, 10): # Para pax 1 a 9
-        
-        # <<< --- INICIO DE CORRECCIÓN --- >>>
-        # Se elimina el bloque que intentaba generar XPaths para pax 3-9.
-        # Esta función ahora SÓLO generará las opciones de fecha (días/meses/años)
-        # para los pasajeros que SÍ existan en los diccionarios (pax_1, pax_2, y los que añadas)
-        
-        # --- Generar locators para campos que faltan (3-9) ---
-        # for url_type, loc_dict in [('nuxqa4', LOCATORS_NUXQA4), ('nuxqa5', LOCATORS_NUXQA5)]:
-        #     if f"pax_{i}_name" not in loc_dict: # Si no existe el pax {i}, intentar generarlo
-        #         try:
-        #             # ... BLOQUE ELIMINADO ...
-        #         except:
-        #             pass 
-        # <<< --- FIN DE CORRECCIÓN --- >>>
-
-
-        # --- DÍAS (1-31) ---
-        # Esta lógica se mantiene, pero ahora sólo funciona si 'pax_i_dob_day_dropdown'
-        # existe (porque lo has añadido manualmente)
+    for i in range(1, 10): 
         for d in range(1, 32):
-            day_str = str(d).zfill(2) # "1" -> "01"
+            day_str = str(d).zfill(2) 
             if f'pax_{i}_dob_day_dropdown' in LOCATORS_NUXQA4:
                 # Fecha Nacimiento
                 base_day_xpath_nuxqa4 = LOCATORS_NUXQA4[f'pax_{i}_dob_day_dropdown'][1].replace('/button', f'/ul/li[{d}]/button')
                 LOCATORS_NUXQA4[f'pax_{i}_dob_day_option_{day_str}'] = (By.XPATH, base_day_xpath_nuxqa4)
-            if f'pax_{i}_exp_day_dropdown' in LOCATORS_NUXQA4: # <<< CORREGIDO: Añadido 'if' para evitar errores si no existe
+            if f'pax_{i}_exp_day_dropdown' in LOCATORS_NUXQA4: 
                 # Fecha Expiración
                 base_exp_day_xpath_nuxqa4 = LOCATORS_NUXQA4[f'pax_{i}_exp_day_dropdown'][1].replace('/button', f'/ul/li[{d}]/button')
                 LOCATORS_NUXQA4[f'pax_{i}_exp_day_option_{day_str}'] = (By.XPATH, base_exp_day_xpath_nuxqa4)
@@ -592,18 +567,18 @@ def _populate_date_locators():
             if f'pax_{i}_dob_day_dropdown' in LOCATORS_NUXQA5:
                 base_day_xpath_nuxqa5 = LOCATORS_NUXQA5[f'pax_{i}_dob_day_dropdown'][1].replace('/button', f'/ul/li[{d}]/button')
                 LOCATORS_NUXQA5[f'pax_{i}_dob_day_option_{day_str}'] = (By.XPATH, base_day_xpath_nuxqa5)
-            if f'pax_{i}_exp_day_dropdown' in LOCATORS_NUXQA5: # <<< CORREGIDO: Añadido 'if' para evitar errores si no existe
+            if f'pax_{i}_exp_day_dropdown' in LOCATORS_NUXQA5: 
                 base_exp_day_xpath_nuxqa5 = LOCATORS_NUXQA5[f'pax_{i}_exp_day_dropdown'][1].replace('/button', f'/ul/li[{d}]/button')
                 LOCATORS_NUXQA5[f'pax_{i}_exp_day_option_{day_str}'] = (By.XPATH, base_exp_day_xpath_nuxqa5)
 
         # --- MESES (1-12) ---
         for m_idx, m_name in enumerate(months, start=1):
-            month_num_str = str(m_idx).zfill(2) # "1" -> "01"
+            month_num_str = str(m_idx).zfill(2) 
             if f'pax_{i}_dob_month_dropdown' in LOCATORS_NUXQA4:
                 # Fecha Nacimiento
                 base_month_xpath_nuxqa4 = LOCATORS_NUXQA4[f'pax_{i}_dob_month_dropdown'][1].replace('/button', f'/ul/li[{m_idx}]/button')
                 LOCATORS_NUXQA4[f'pax_{i}_dob_month_option_{month_num_str}'] = (By.XPATH, base_month_xpath_nuxqa4)
-            if f'pax_{i}_exp_month_dropdown' in LOCATORS_NUXQA4: # <<< CORREGIDO: Añadido 'if'
+            if f'pax_{i}_exp_month_dropdown' in LOCATORS_NUXQA4: 
                 # Fecha Expiración
                 base_exp_month_xpath_nuxqa4 = LOCATORS_NUXQA4[f'pax_{i}_exp_month_dropdown'][1].replace('/button', f'/ul/li[{m_idx}]/button')
                 LOCATORS_NUXQA4[f'pax_{i}_exp_month_option_{month_num_str}'] = (By.XPATH, base_exp_month_xpath_nuxqa4)
@@ -611,7 +586,7 @@ def _populate_date_locators():
             if f'pax_{i}_dob_month_dropdown' in LOCATORS_NUXQA5:
                 base_month_xpath_nuxqa5 = LOCATORS_NUXQA5[f'pax_{i}_dob_month_dropdown'][1].replace('/button', f'/ul/li[{m_idx}]/button')
                 LOCATORS_NUXQA5[f'pax_{i}_dob_month_option_{month_num_str}'] = (By.XPATH, base_month_xpath_nuxqa5)
-            if f'pax_{i}_exp_month_dropdown' in LOCATORS_NUXQA5: # <<< CORREGIDO: Añadido 'if'
+            if f'pax_{i}_exp_month_dropdown' in LOCATORS_NUXQA5: 
                 base_exp_month_xpath_nuxqa5 = LOCATORS_NUXQA5[f'pax_{i}_exp_month_dropdown'][1].replace('/button', f'/ul/li[{m_idx}]/button')
                 LOCATORS_NUXQA5[f'pax_{i}_exp_month_option_{month_num_str}'] = (By.XPATH, base_exp_month_xpath_nuxqa5)
         
@@ -633,7 +608,7 @@ def _populate_date_locators():
                 LOCATORS_NUXQA5[f'pax_{i}_exp_year_option_{y_text}'] = (By.XPATH, base_exp_year_xpath_nuxqa5)
 
 
-_populate_date_locators() # Llama a la función para poblar los diccionarios
+_populate_date_locators() 
 
 
 # --- FUNCIÓN "MÁGICA" ---
@@ -645,7 +620,6 @@ def get_locator(key, url):
     
     if key not in target_dict:
         url_type = "NUXQA4" if "nuxqa4" in url else "NUXQA5"
-        # ¡Este es el error que viste! Es nuestra guía.
         raise Exception(f"¡FATAL! Falta el Full XPath para la clave '{key}' en el diccionario 'LOCATORS_{url_type}'!")
         
     return target_dict[key]

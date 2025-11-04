@@ -5,6 +5,8 @@ from pages_roundtrip.offers_page import OffersPage
 from pages_roundtrip.select_flight_page_rt import SelectFlightPageRT
 from pages_roundtrip.passenger_page_rt import PassengersPageRT
 from pages_roundtrip.services_page_rt import ServicesPageRT
+from pages_roundtrip.seatmap_page_rt import SeatmapPageRT
+from pages_roundtrip.payments_page_rt import PaymentsPageRT
 from utils.test_data_generator import generate_passenger_data_for_roundtrip
 
 
@@ -14,11 +16,11 @@ OFFERS_URL_SUFFIX = "/es/ofertas-destinos/ofertas-de-vuelos"
 EDIT_ORIGIN_CODE = "MGA" 
 EDIT_DEST_CODE = "MDE"   
 # --- NUEVO: Fechas de Edición ---
-EDIT_DEP_DAY = "20"
+EDIT_DEP_DAY = "10"
 EDIT_DEP_MONTH = "11" # Noviembre
 EDIT_DEP_YEAR = "2025"
 # (Dejamos las de regreso para después)
-EDIT_RET_DAY = "30"
+EDIT_RET_DAY = "15"
 EDIT_RET_MONTH = "11" 
 EDIT_RET_YEAR = "2025"
 MAX_PASSENGERS = 9 # Lo usaremos después
@@ -45,18 +47,16 @@ class TestRoundTripBooking:
             # --- 2. Seleccionar Oferta y Buscar (Valores por defecto) ---
             offers_page = OffersPage(driver)
             with allure.step(f"Paso 2: Seleccionar oferta y Buscar (Defaults)"):
-                offers_page.select_offer_and_search_defaults() # <-- LLAMAMOS AL MÉTODO SIMPLE
+                offers_page.select_offer_and_search_defaults() 
                 logger.info("Búsqueda simple iniciada. Deberíamos estar en 'Select Flight'.")
                 allure.attach(driver.get_screenshot_as_png(), name="Pagina_Select_Flight_Esperada", attachment_type=allure.attachment_type.PNG)
-                # Añadimos una pausa larga al final para que puedas VER la página
                 logger.info("Pausa de 10 segundos para verificación visual...")
                 time.sleep(10) 
             
             # --- 3. Hacer Clic en Editar ---
             select_flight_rt = SelectFlightPageRT(driver) 
             with allure.step(f"Paso 3: Abrir Editar y cambiar Origen/Destino/Fechas/Pasajeros"):
-                select_flight_rt.click_edit_booking_button() # Abre el modal
-                
+                select_flight_rt.click_edit_booking_button()
                 select_flight_rt.edit_origin_to_managua() 
                 select_flight_rt.edit_destination_to_medellin()
                 select_flight_rt.edit_departure_date(EDIT_DEP_DAY, EDIT_DEP_MONTH, EDIT_DEP_YEAR)
@@ -64,7 +64,6 @@ class TestRoundTripBooking:
                 
                 # --- CAMBIAMOS PASAJEROS ---
                 select_flight_rt.edit_passengers_to_max(MAX_PASSENGERS)
-                # ---
                 logger.info("Modal editado. Aplicando búsqueda...")
                 allure.attach(driver.get_screenshot_as_png(), name="Modal_Editado_Completo", attachment_type=allure.attachment_type.PNG)
                 
@@ -79,7 +78,7 @@ class TestRoundTripBooking:
             
             # --- 4. Seleccionar Tarifa de IDA ---
             with allure.step("Paso 4: Seleccionar tarifa de IDA"):
-                select_flight_rt.select_departure_fare() # <-- LLAMAMOS AL NUEVO MÉTODO
+                select_flight_rt.select_departure_fare() 
                 select_flight_rt.select_return_fare()
                 logger.info("Tarifa de IDA seleccionada.")
                 allure.attach(driver.get_screenshot_as_png(), name="Tarifa_Ida_Seleccionada", attachment_type=allure.attachment_type.PNG)
@@ -91,7 +90,7 @@ class TestRoundTripBooking:
                 time.sleep(10)
                 logger.info("Navegando a la página de Pasajeros.")
 
-            # --- 5. Passengers Page (¡AHORA ACTIVO!) ---
+            # --- 5. Passengers Page ---
             passengers_page = PassengersPageRT(driver)
             with allure.step(f"Paso 5: Ingresar {MAX_PASSENGERS} pasajeros (1ro='Test Test')"):
                 # Generamos los 9 pasajeros (con 'Test Test' primero)
@@ -101,9 +100,6 @@ class TestRoundTripBooking:
                 
                 logger.info("Página de Pasajeros (Nombres/Apellidos) completada.")
                 allure.attach(driver.get_screenshot_as_png(), name="Pasajeros_Nombres_Completados", attachment_type=allure.attachment_type.PNG)
-                
-                # El time.sleep(10) ya está dentro del método fill_all_names_and_lastnames
-                # Así que esta pausa es opcional, pero la dejamos por si acaso.
                 time.sleep(5)
 
                 # --- 6. Services Page ---
@@ -120,11 +116,32 @@ class TestRoundTripBooking:
                 allure.attach(driver.get_screenshot_as_png(), name="Servicios_Completados", attachment_type=allure.attachment_type.PNG)
                 
                 services_page.click_continue() # 5. Continúa a la siguiente página (Seatmap)
-            
-            # <<< --- FIN DE LO NUEVO --- >>>
+
+            # --- 7. Seatmap Page  ---
+            seatmap_page = SeatmapPageRT(driver)
+            with allure.step("Paso 7: Seleccionar asientos para pasajeros impares"):
+                
+                # 1. El método principal que hace todo en la página de asientos
+                #    (Usa la variable MAX_PASSENGERS que ya tienes en tu test)
+                seatmap_page.select_seats_for_all_segments(MAX_PASSENGERS)
+                
+                # 2. Validar el basket
+                seatmap_page.validate_summary()
+                
+                # 3. Continuar al pago
+                seatmap_page.click_continue_to_payment()
+            # --- 8. Payments Page (¡LO NUEVO!) ---
+            payments_page = PaymentsPageRT(driver)
+            with allure.step("Paso 8: Realizar pago con Avianca Credits"):
+
+                # Datos del Voucher
+                VOUCHER_NUM = "1500014129935977"
+                VOUCHER_PIN = "145880"
+
+                payments_page.pay_with_avianca_credits(VOUCHER_NUM, VOUCHER_PIN)
             
 
-            status = "PASS" # Si llega aquí, la navegación funcionó
+            status = "PASS" 
             logger.info("¡[DEBUG] Navegación Ofertas -> Select Flight exitosa!")
 
         except Exception as e:

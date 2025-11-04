@@ -3,12 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException # Importado para manejo de errores
-from pages.base_page import BasePage
+from pages_roundtrip.base_page import BasePage
 from utils.logger import get_logger
-import time
 import allure
 import random 
-# ¡Importamos nuestra nueva "Biblioteca" de Locators!
 from . import locators_rt 
 
 logger = get_logger()
@@ -20,7 +18,6 @@ class PassengersPageRT(BasePage):
     """
     
     PAGE_LOADER = (By.CSS_SELECTOR, "div.page-loader")
-    # --- Locators de Contacto (los que son iguales en ambas) ---
     CONTACT_TITULAR_DROPDOWN = (By.ID, "passengerId")
     CONTACT_TITULAR_OPTION_TEST = (By.ID, "passengerId-0") 
     CONTACT_PREFIX_DROPDOWN = (By.ID, "phone_prefixPhoneId")
@@ -28,9 +25,6 @@ class PassengersPageRT(BasePage):
     CONTACT_PHONE_INPUT = (By.ID, "phone_phoneNumberId")
     CONTACT_EMAIL_INPUT = (By.ID, "email")
     CONTACT_CONFIRM_EMAIL_INPUT = (By.ID, "confirmEmail")
-    
-    # <<< CORREGIDO: Se eliminó CONTACT_TERMS_CHECKBOX de aquí >>>
-    
     CONTINUE_BUTTON = (By.XPATH, "//button[contains(@class, 'page_button') and .//span[normalize-space()='Continuar']]")
 
 
@@ -106,9 +100,6 @@ class PassengersPageRT(BasePage):
         
         logger.info("Test de Pasajeros terminado. Navegando a la siguiente página...")
 
-    
-    ### --- MÉTODOS AUXILIARES (El "Motor") --- ###
-    
     def _fill_names(self, i, pax_data, name_element):
         """Llena nombre y apellido. Recibe el elemento 'name' para no buscarlo de nuevo."""
         lastname_loc = locators_rt.get_locator(f"pax_{i}_lastname", self.current_url)
@@ -343,12 +334,10 @@ class PassengersPageRT(BasePage):
         self.do_send_keys(self.CONTACT_CONFIRM_EMAIL_INPUT, email)
         
         logger.info("Aceptando términos.")
-        
-        # <<< --- INICIO CORRECCIÓN --- >>>
-        # Ahora busca el locator en el archivo locators_rt.py
+
         terms_loc = locators_rt.get_locator("contact_terms_checkbox", self.current_url)
         terms_element = wait.until(EC.element_to_be_clickable(terms_loc))
-        # <<< --- FIN CORRECCIÓN --- >>>
+
         
         self.driver.execute_script("arguments[0].click();", terms_element)
 

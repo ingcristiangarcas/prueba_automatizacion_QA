@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException
-from pages.base_page import BasePage 
+from pages_roundtrip.base_page import BasePage 
 from utils.logger import get_logger 
 import time
 import allure
@@ -12,7 +12,6 @@ logger = get_logger()
 
 
 def modal_calendar_day_locator(day: str, month: str, year: str):
-    """Devuelve el localizador XPATH para el DIV del día específico DENTRO DEL MODAL."""
     aria_label_date = f"{int(day)}-{int(month)}-{year}"
     return (By.XPATH, f"//div[contains(@class, 'ngb-dp-day') and @aria-label='{aria_label_date}']")
 
@@ -120,10 +119,6 @@ class SelectFlightPageRT(BasePage):
     # --- MÉTODO PARA EDITAR PASAJEROS ---
     @allure.step("Editar Pasajeros al máximo ({max_pax}) en el modal")
     def edit_passengers_to_max(self, max_pax: int):
-        """
-        Dentro del modal de edición, aumenta los adultos al máximo (9)
-        y confirma.
-        """
         wait = WebDriverWait(self.driver, 30)
         short_wait = WebDriverWait(self.driver, 10)
         
@@ -160,10 +155,6 @@ class SelectFlightPageRT(BasePage):
             raise
     @allure.step("Aplicar cambios y Buscar Vuelos")
     def click_apply_search(self):
-        """
-        Hace clic en el botón final 'Buscar' dentro del modal 
-        y espera a que la página se recargue.
-        """
         wait = WebDriverWait(self.driver, 30)
         
         try:
@@ -188,10 +179,6 @@ class SelectFlightPageRT(BasePage):
     # --- NUEVO MÉTODO PARA SELECCIONAR TARIFA DE IDA ---
     @allure.step("Seleccionar Tarifa de Vuelo de IDA")
     def select_departure_fare(self):
-        """
-        En la página de Select Flight (ya recargada), selecciona 
-        el primer precio de IDA y la primera tarifa 'Seleccionar'.
-        """
         wait = WebDriverWait(self.driver, 90)
         short_wait = WebDriverWait(self.driver, 20)
         
@@ -239,10 +226,6 @@ class SelectFlightPageRT(BasePage):
     # --- MÉTODO DE REGRESO ---
     @allure.step("Seleccionar Tarifa de Vuelo de REGRESO")
     def select_return_fare(self):
-        """
-        Selecciona el primer precio de REGRESO (basado en h2 'Vuelta') 
-        y la primera tarifa 'Seleccionar'.
-        """
         wait = WebDriverWait(self.driver, 90)
         short_wait = WebDriverWait(self.driver, 20)
         
@@ -284,10 +267,6 @@ class SelectFlightPageRT(BasePage):
     # --- MÉTODO DE VALIDACIÓN DE SUMMARY ---
     @allure.step("Validar Revisión en Summary (con 'Ver detalle')")
     def validate_summary(self):
-        """
-        Abre el modal del resumen, hace clic en 'Ver detalle',
-        valida y cierra.
-        """
         wait = WebDriverWait(self.driver, 30)
         logger.info("Abriendo el resumen de compra (Summary) para validación.")
         try:
@@ -328,9 +307,6 @@ class SelectFlightPageRT(BasePage):
 
     @allure.step("Hacer clic en 'Continuar' a Pasajeros")
     def click_continue_to_passengers(self):
-        """
-        Hace clic en el botón final para ir a la página de pasajeros.
-        """
         wait = WebDriverWait(self.driver, 30)
         try:
             logger.info("Haciendo clic en 'Continuar' para ir a la página de pasajeros.")
