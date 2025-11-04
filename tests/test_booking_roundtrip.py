@@ -106,7 +106,7 @@ class TestRoundTripBooking:
             services_page = ServicesPageRT(driver) # 1. Instancia la nueva página
             with allure.step("Paso 6: Añadir equipaje normal y deportivo para todos los pasajeros"):
                 
-                services_page.wait_for_page_to_load() # 2. Espera a que cargue
+                services_page.wait_for_page_to_load() 
                 
                 services_page.add_all_baggage_services() # 3. Añade todo el equipaje
                 
